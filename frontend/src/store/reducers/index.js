@@ -1,4 +1,5 @@
 import { combineReducers } from "redux";
+import configurationReducer from "./configuration.js";
 import eventsReducer from "./eventsReducer.js";
 if (typeof window !== "undefined" && process.env.NODE_ENV === "development") {
   console.log(
@@ -18,6 +19,7 @@ _______________________________________________________
   );
 }
 const reducer = combineReducers({
+  configuration: configurationReducer,
   events: eventsReducer,
 });
 

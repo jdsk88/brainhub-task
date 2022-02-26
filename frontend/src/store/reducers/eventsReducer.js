@@ -10,7 +10,7 @@ import {
 const initialState = { items: [] };
 
 const eventsReducer = (state = initialState, action) => {
-  console.log(state, action ? action : "NO ACTION YET");
+  // console.log(state, action ? action : "NO ACTION YET");
   switch (action.type) {
     case GET_ITEMS:
       return { ...state, items: [...state.items] };
