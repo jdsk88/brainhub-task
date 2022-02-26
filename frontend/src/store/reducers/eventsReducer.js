@@ -1,11 +1,11 @@
 import {
-  GET_ITEMS,
   CREATE_ITEM,
   UPDATE_ITEM,
   DELETE_ONE_ITEM,
   DELETE_ALL_ITEMS,
   SET_ITEMS,
-} from "../actions.js";
+  GET_ITEMS,
+} from "store/actions";
 
 const initialState = { items: [] };
 
