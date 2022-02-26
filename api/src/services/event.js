@@ -6,12 +6,16 @@ export const EventRouteHandlers = {
     return result;
   },
   getOne: async (id) => {
-    const result = Event.findById({ _id: id });
-    if (result._conditions._id !== null) {
-      return result;
-    } else {
-      return "no id like this";
-    }
+    Event.countDocuments({ _id: id }, (err, count) => {
+      if (count > 0) {
+        console.log("exist");
+        const result = Event.findById({ _id: id });
+        return result;
+      } else {
+        console.log("not exist");
+        return "no id like this";
+      }
+    });
   },
   addOne: async (data) => {
     if (typeof data === "object") {
