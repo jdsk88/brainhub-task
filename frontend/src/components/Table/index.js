@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import { useDispatch, useSelector } from "react-redux";
-import { GET_ITEMS, SET_ITEMS } from "store/actions";
+import { GET_ITEMS } from "store/actions";
 
 const EventsTable = () => {
   const dispatch = useDispatch();
@@ -13,15 +13,15 @@ const EventsTable = () => {
   }, [dispatch]);
 
   const columns = [
-    { field: "id", id: "ID", width: 100 },
-    { field: "firstName", firstName: "First Name", width: 150 },
-    { field: "lastName", lastName: "Last Name", width: 150 },
-    { field: "email", email: "E-Mail", width: 200 },
-    { field: "eventDate", eventDate: "Event Date ", width: 200 },
-  ];
+    { field: "id", headerName: "ID", width: 100 },
+    { field: "firstName", headerName: "First Name", width: 150 },
+    { field: "lastName", headerName: "Last Name", width: 150 },
+    { field: "email", headerName: "E-Mail", width: 200 },
+    { field: "eventDate", headerName: "Event Date ", width: 200 },
+    ];
 
   let rows = [];
-  events[0].forEach((element, i) => {
+  events.forEach((element, i) => {
     rows.push({
       id: i + 1,
       firstName: element.firstName,
@@ -30,6 +30,7 @@ const EventsTable = () => {
       eventDate: new Date(element.eventDate).toLocaleString(),
     });
   });
+
 
   return (
     <div style={{ height: "calc(70vh - 56px)", width: "100%" }}>

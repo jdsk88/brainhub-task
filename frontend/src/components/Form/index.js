@@ -4,14 +4,18 @@ import { Button, Paper, Stack, TextField } from "@mui/material";
 import { useFormik } from "formik";
 import { initialValues, validationSchema } from "./validation";
 import EventsServices from "services/events";
+import { getRandomIntInclusive } from "services/helpers/random";
+
 const EventForm = () => {
   const dispatch = useDispatch();
 
   const formik = useFormik({
     initialValues: initialValues,
-    validationSchema,
+    validationSchema: validationSchema,
     onSubmit: () => {
+      console.log(formik.isValidating);
       const newEvent = {
+        id: getRandomIntInclusive(100000, 999999),
         firstName: formik.values.firstName,
         lastName: formik.values.lastName,
         email: formik.values.email,
@@ -24,6 +28,7 @@ const EventForm = () => {
       );
     },
   });
+
   return (
     <form onSubmit={formik.handleSubmit}>
       <Stack component={Paper} spacing={3} sx={{ width: "100%", p: 2 }}>
