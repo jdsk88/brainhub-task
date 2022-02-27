@@ -20,7 +20,7 @@ routes.get("/:id", async (req, res, next) => {
   }
 });
 
-routes.post("/", async (req, res, next) => {
+routes.post("/create", async (req, res, next) => {
   try {
     const data = req.body;
     console.log(data);
@@ -46,7 +46,7 @@ routes.put("/:id", async (req, res, next) => {
   }
 });
 
-routes.delete("/:id", async (req, res, next) => {
+routes.delete("/delete/:id", async (req, res, next) => {
   try {
     const { id } = req.params;
     const result = await EventRouteHandlers.deleteOne(id);

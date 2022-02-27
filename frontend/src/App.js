@@ -8,7 +8,7 @@ const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    EventsServices.getAll(dispatch);
+    EventsServices.setItems(dispatch);
     dispatch({ type: GET_ITEMS });
   }, [dispatch]);
 
