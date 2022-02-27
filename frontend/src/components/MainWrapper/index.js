@@ -6,6 +6,7 @@ const MainWrapper = styled(
 )(({ resizer }) => ({
   width: "100%",
   height: resizer ? "calc(100vh - 48px)" : "calc(100vh - 56px)",
+  overflowY: "hidden",
 }));
 
 export default MainWrapper;

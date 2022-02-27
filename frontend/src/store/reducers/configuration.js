@@ -8,7 +8,7 @@ export const initialState = {
 };
 
 const configurationReducer = (state = initialState, action) => {
-  console.log(state);
+  // console.log(state);
   let id;
   switch (action.type) {
     case SET_THEME:

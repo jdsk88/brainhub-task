@@ -1,33 +1,28 @@
 import {
-  CREATE_ITEM,
+  GET_ITEMS,
   UPDATE_ITEM,
   DELETE_ONE_ITEM,
   DELETE_ALL_ITEMS,
+  CREATE_ITEM,
   SET_ITEMS,
-  GET_ITEMS,
-} from "store/actions";
+} from "../actions.js";
 
-const initialState = { items: [] };
+export const initialState = { items: [] };
 
 const eventsReducer = (state = initialState, action) => {
-  // console.log(state, action ? action : "NO ACTION YET");
   switch (action.type) {
+    case SET_ITEMS:
+      return { items: action.payload };
+    case CREATE_ITEM:
+      return { ...state, items: [...state.items, action.payload] };
     case GET_ITEMS:
       return { ...state, items: [...state.items] };
-    case CREATE_ITEM:
-      return {
-        ...state,
-        items: [...state.items, action.payload],
-      };
     case UPDATE_ITEM:
-      state.items.find((item) => item._id === action.payload._id);
-      return {
-        ...state,
-        items: state.items,
-      };
+      return;
+
     case DELETE_ONE_ITEM:
       state.items.splice(
-        state.items.find((item) => item._id === action.payload._id),
+        state.items.findIndex((task) => task.id === action.payload.id),
         1
       );
       return {
@@ -35,13 +30,8 @@ const eventsReducer = (state = initialState, action) => {
         items: state.items,
       };
     case DELETE_ALL_ITEMS:
-      state.items = [];
-      return {
-        ...state,
-        items: state.items,
-      };
-    case SET_ITEMS:
-      return { ...state, items: [...state.items, action.payload] };
+      return (state.items = []);
+
     default:
       return state;
   }

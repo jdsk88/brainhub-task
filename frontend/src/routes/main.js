@@ -2,8 +2,12 @@ import { lazy } from "react";
 import LazyLoader from "components/Loader";
 import MainLayout from "layouts/main";
 
+const Test = LazyLoader(lazy(() => import("views/pages/test")));
 const EventsView = LazyLoader(lazy(() => import("views/pages/events")));
 const EventsAdd = LazyLoader(lazy(() => import("views/pages/eventsAdd")));
+const EventsTableView = LazyLoader(
+  lazy(() => import("views/pages/eventsTable"))
+);
 const main = {
   path: "/",
   element: <MainLayout />,
@@ -18,7 +22,7 @@ const main = {
     },
     {
       path: "/events/table",
-      element: <EventsAdd />,
+      element: <EventsTableView />,
     },
     {
       path: "/calendar",
@@ -26,7 +30,7 @@ const main = {
     },
     {
       path: "/contact",
-      element: <EventsAdd />,
+      element: <Test />,
     },
   ],
 };

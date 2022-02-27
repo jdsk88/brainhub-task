@@ -21,6 +21,6 @@ _______________________________________________________
 const reducer = combineReducers({
   configuration: configurationReducer,
   events: eventsReducer,
-});
+ });
 
 export default reducer;

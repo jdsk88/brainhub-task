@@ -29,7 +29,7 @@ export const EventRouteHandlers = {
       // };
       const result = new Event(data);
       result.save(result);
-      return "event was created";
+      return result;
     } else {
       return "event was not created";
     }
