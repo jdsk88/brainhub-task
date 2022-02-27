@@ -13,7 +13,7 @@ import { useTheme } from "@mui/material/styles";
 import MainWrapper from "components/MainWrapper";
 import Header from "components/Header";
 import SideMenu from "components/SideMenu";
-import { Box, CssBaseline } from "@mui/material";
+import { Box, Container, CssBaseline } from "@mui/material";
 
 const MainLayout = () => {
   const theme = useTheme();
@@ -26,20 +26,13 @@ const MainLayout = () => {
   return (
     <>
       <Header handleMenuToggle={handleMenuToggle} />
-      <Box
-        sx={{
-          display: "flex",
-        }}
-      >
-        <CssBaseline />
-        <MainWrapper theme={theme}>
-          <SideMenu
-            handleMenuToggle={handleMenuToggle}
-            drawerOpen={menuOpened}
-          />
+      <CssBaseline />
+      <MainWrapper theme={theme}>
+        <SideMenu handleMenuToggle={handleMenuToggle} drawerOpen={menuOpened} />
+        <Container maxWidth="md" sx={{ my: 25 }}>
           <Outlet />
-        </MainWrapper>
-      </Box>
+        </Container>
+      </MainWrapper>
     </>
   );
 };

@@ -13,7 +13,19 @@ const main = {
       element: <EventsView />,
     },
     {
-      path: "/events/add",
+      path: "/events/create",
+      element: <EventsAdd />,
+    },
+    {
+      path: "/events/table",
+      element: <EventsAdd />,
+    },
+    {
+      path: "/calendar",
+      element: <EventsAdd />,
+    },
+    {
+      path: "/contact",
       element: <EventsAdd />,
     },
   ],

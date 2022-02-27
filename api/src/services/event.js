@@ -19,6 +19,14 @@ export const EventRouteHandlers = {
   },
   addOne: async (data) => {
     if (typeof data === "object") {
+      // const { firstName, lastName, email, eventDate } = data;
+      // let newDate = Date.parse(eventDate);
+      // const newItem = {
+      //   firstName: firstName,
+      //   lastName: lastName,
+      //   email: email,
+      //   eventDate: newDate,
+      // };
       const result = new Event(data);
       result.save(result);
       return "event was created";

@@ -9,6 +9,7 @@ import {
 } from "@mui/material";
 import { ArrowBack } from "@mui/icons-material";
 import config from "store/config";
+import MenuList from "components/MenuItems";
 
 const SideMenu = ({ drawerOpen, handleMenuToggle }) => {
   const theme = useTheme();
@@ -45,6 +46,7 @@ const SideMenu = ({ drawerOpen, handleMenuToggle }) => {
               <ArrowBack />
             </IconButton>
           </Toolbar>
+          <MenuList />
           <Divider />
         </Drawer>
       )}

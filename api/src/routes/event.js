@@ -23,11 +23,9 @@ routes.get("/:id", async (req, res, next) => {
 routes.post("/create", async (req, res, next) => {
   try {
     const data = req.body;
-    console.log(data);
     const result = await EventRouteHandlers.addOne(data).then(
       (response) => response
     );
-    console.log(result);
     res.send(result);
   } catch (err) {
     next(err);

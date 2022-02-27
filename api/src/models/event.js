@@ -4,7 +4,7 @@ export const EventSchema = mongoose.Schema({
   firstName: { type: String },
   lastName: { type: String },
   email: { type: String },
-  eventDate: { type: String },
+  eventDate: { type: Number },
 });
 
 export const Event = mongoose.model("Event", EventSchema);

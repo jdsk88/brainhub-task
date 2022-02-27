@@ -16,8 +16,9 @@ const EventsServices = {
       dispatch({ type: GET_ITEMS })
     );
   },
-  createItem: async (dispatch) => {
-    const res = await api.post(`/events/create`);
+  createItem: async (dispatch, data) => {
+    console.log(data);
+    const res = await api.post(`/events/create`, data);
     return (
       dispatch({ type: CREATE_ITEM, payload: res.data }),
       dispatch({ type: GET_ITEMS })
