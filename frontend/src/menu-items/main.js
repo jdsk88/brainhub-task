@@ -1,10 +1,4 @@
-import {
-  Code,
-  Mail,
-  MobileFriendly,
-  TableRows,
-  TableChart,
-} from "@mui/icons-material";
+import { Code, Mail, MobileFriendly, TableRows } from "@mui/icons-material";
 
 const main_items = {
   id: "/",
@@ -12,27 +6,18 @@ const main_items = {
   url: "/",
   children: [
     {
-      id: "/events",
-      title: "events",
-      type: "collapse",
-      url: "/events",
-      icon: TableChart,
-      children: [
-        {
-          id: "/events/create",
-          title: "create event",
-          type: "item",
-          url: "/events/create",
-          icon: Code,
-        },
-        {
-          id: "/events/table",
-          title: "events table",
-          type: "item",
-          url: "/events/table",
-          icon: MobileFriendly,
-        },
-      ],
+      id: "/events/create",
+      title: "create event",
+      type: "item",
+      url: "/events/create",
+      icon: Code,
+    },
+    {
+      id: "/events/table",
+      title: "events table",
+      type: "item",
+      url: "/events/table",
+      icon: MobileFriendly,
     },
     {
       id: "/calendar",
