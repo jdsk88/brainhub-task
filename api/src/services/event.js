@@ -1,4 +1,5 @@
 import { Event } from "../models/event.js";
+import { getErrors } from "./errors.js";
 
 export const EventRouteHandlers = {
   getAll: async () => {
@@ -19,16 +20,11 @@ export const EventRouteHandlers = {
   },
   addOne: async (data) => {
     if (typeof data === "object") {
-      // const { firstName, lastName, email, eventDate } = data;
-      // let newDate = Date.parse(eventDate);
-      // const newItem = {
-      //   firstName: firstName,
-      //   lastName: lastName,
-      //   email: email,
-      //   eventDate: newDate,
-      // };
       const result = new Event(data);
-      result.save(result);
+      result.save(function (error, result) {
+        let errors = getErrors(error);
+        console.log(errors, result);
+      });
       return result;
     } else {
       return "event was not created";
