@@ -29,7 +29,7 @@ const main = {
     },
     {
       path: "/contact",
-      element: <h1></h1>,
+      element: <h1>contact</h1>,
     },
   ],
 };

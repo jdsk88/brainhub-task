@@ -1,4 +1,4 @@
-import { Code, Mail, MobileFriendly, TableRows } from "@mui/icons-material";
+import { CalendarToday, Dashboard, Mail, TableRows } from "@mui/icons-material";
 
 const main_items = {
   id: "/",
@@ -6,29 +6,29 @@ const main_items = {
   url: "/",
   children: [
     {
-      id: "/events/create",
-      title: "create event",
+      id: "/events/dashboard",
+      title: "Dashboard",
       type: "item",
       url: "/events/create",
-      icon: Code,
+      icon: Dashboard,
     },
     {
       id: "/events/table",
-      title: "events table",
+      title: "Table",
       type: "item",
       url: "/events/table",
-      icon: MobileFriendly,
-    },
-    {
-      id: "/calendar",
-      title: "calendar",
-      type: "item",
-      url: "/calendar",
       icon: TableRows,
     },
     {
+      id: "/calendar",
+      title: "Calendar",
+      type: "item",
+      url: "/calendar",
+      icon: CalendarToday,
+    },
+    {
       id: "/contact",
-      title: "contact",
+      title: "Contact",
       type: "item",
       url: "/contact",
       icon: Mail,

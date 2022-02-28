@@ -1,5 +1,5 @@
-import EventsTable from "components/Table";
-import EventFormHorizontal from "components/FormHorizontal";
+import EventsTable from "components/DataTable";
+import EventFormHorizontal from "components/Form";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { GET_ITEMS } from "store/actions";
