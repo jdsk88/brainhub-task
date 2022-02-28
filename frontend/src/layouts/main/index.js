@@ -16,7 +16,7 @@ import { AppBar, Drawer } from "components/AppBar";
 import MenuList from "components/MenuItems";
 const mdTheme = createTheme();
 
-function DashboardContent() {
+function MainLayout() {
   const [open, setOpen] = React.useState(true);
   const toggleDrawer = () => {
     setOpen(!open);
@@ -99,4 +99,4 @@ function DashboardContent() {
   );
 }
 
-export default DashboardContent;
+export default MainLayout;
