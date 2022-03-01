@@ -22,7 +22,7 @@ const eventsReducer = (state = initialState, action) => {
 
     case DELETE_ONE_ITEM:
       state.items.splice(
-        state.items.findIndex((item) => item._id === action.payload),
+        state.items.find((item) => item._id === action.payload),
         1
       );
       return {

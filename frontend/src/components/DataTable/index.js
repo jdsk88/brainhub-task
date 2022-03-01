@@ -7,14 +7,30 @@ const EventsTable = () => {
   const events = useSelector((state) => state.events.items);
 
   const columns = [
-    { field: "id", headerName: "ID", width: 100 },
-    { field: "firstName", headerName: "First Name", width: 150 },
-    { field: "lastName", headerName: "Last Name", width: 150 },
-    { field: "email", headerName: "E-Mail", width: 200 },
-    { field: "eventDate", headerName: "Event Date ", width: 200 },
+    { field: "id", headerName: "No.", headerAlign: "center", width: 120 },
+    {
+      field: "firstName",
+      headerName: "First Name",
+      headerAlign: "center",
+      width: 200,
+    },
+    {
+      field: "lastName",
+      headerName: "Last Name",
+      headerAlign: "center",
+      width: 200,
+    },
+    { field: "email", headerName: "E-Mail", headerAlign: "center", width: 200 },
+    {
+      field: "eventDate",
+      headerName: "Event Date ",
+      headerAlign: "center",
+      width: 200,
+    },
     {
       field: "delete",
       headerName: "Delete item ",
+      headerAlign: "center",
       width: 200,
       renderCell: (cellValues) => {
         return <AlertDialog data={cellValues} />;
@@ -42,6 +58,7 @@ const EventsTable = () => {
         pageSize={10}
         rowsPerPageOptions={[10]}
         disableSelectionOnClick
+        density="comfortable"
       />
     </div>
   );

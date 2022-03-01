@@ -6,7 +6,7 @@ const main_items = {
   url: "/",
   children: [
     {
-      id: "/events/dashboard",
+      id: "/events/create",
       title: "Dashboard",
       type: "item",
       url: "/events/create",
