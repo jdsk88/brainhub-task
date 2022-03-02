@@ -10,8 +10,6 @@ export const FloatingButton = () => {
   };
   const style = {
     containerBox: {
-      // position: "fixed",
-
       display: "flex",
       flexDirection: "row",
       justifyContent: "stretch",
