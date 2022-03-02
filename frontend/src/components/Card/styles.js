@@ -1,8 +1,8 @@
 export const styles = {
   button: { textTransform: "none" },
-  name: { width: "90px" },
+  name: { width: "47.5%" },
   textField: {
-    width: "180px",
+    width: "95%",
     marginLeft: 0,
     marginRight: 0,
     paddingBottom: 0,
