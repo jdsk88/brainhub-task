@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { env } from "../../setupEnv";
+import { env } from "../../setupEnv.js";
 
 mongoose
   .connect(env.MONGO_DB, {

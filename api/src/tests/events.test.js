@@ -11,7 +11,7 @@ const expectedKeys = [
 ];
 
 describe("EVENT POST ENDPOINT TEST", () => {
-  it("should create a new post", async () => {
+  it("should create a new event item", async () => {
     const res = await request(app).post("/api/events/create").send({
       firstName: "Maciek",
       lastName: "Jakobszy",
@@ -20,5 +20,21 @@ describe("EVENT POST ENDPOINT TEST", () => {
     });
     expect(res.statusCode).toEqual(200);
     expect(Object.keys(res.body).sort()).toEqual(expectedKeys.sort());
+  });
+});
+
+describe("EVENT GET ENDPOINT TEST", () => {
+  it("should get event list or empty array", async () => {
+    const res = await request(app).get("/api/events");
+    expect(res.statusCode).toEqual(200);
+    expect(res.body);
+  });
+});
+
+describe("EVENT DELETE ENDPOINT TEST", (id) => {
+  it("should get event list or empty array", async () => {
+    const res = await request(app).delete(`/api/events/${id}}`);
+    expect(res.statusCode).toEqual(200);
+    expect(res.body);
   });
 });

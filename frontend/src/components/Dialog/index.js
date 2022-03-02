@@ -12,6 +12,8 @@ export const AlertDialog = ({ data }) => {
   const [open, setOpen] = useState(false);
   const dispatch = useDispatch();
 
+  console.log(data.cellValues);
+
   const handleClickOpen = () => {
     setOpen(true);
   };

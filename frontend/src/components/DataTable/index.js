@@ -32,7 +32,7 @@ const EventsTable = () => {
       headerName: "Delete item ",
       headerAlign: "center",
       width: 200,
-      renderCell: (cellValues) => {
+      renderCell: () => {
         return <AlertDialog data={cellValues} />;
       },
     },
@@ -59,6 +59,7 @@ const EventsTable = () => {
         rowsPerPageOptions={[10]}
         disableSelectionOnClick
         density="comfortable"
+        onCellClick={(e) => console.log(e)}
       />
     </div>
   );
