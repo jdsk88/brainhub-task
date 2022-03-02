@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "start": "nodemon -r dotenv/config --experimental-modules ./api/src/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node --trace-warnings --experimental-vm-modules node_modules/jest/bin/jest.js --detectOpenHandles",
+    "cross-test": " cross-env NODE_ENV=test jest --testTimeout=10000"
   },
   "keywords": [],
   "author": "",
@@ -26,5 +27,19 @@
       "node_modules/*"
     ],
     "delay": "300"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "jest": "^27.5.1",
+    "supertest": "^6.2.2"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "testPathIgnorePatterns": [
+      "/frontend/"
+    ]
   }
 }

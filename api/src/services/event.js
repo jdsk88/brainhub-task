@@ -23,7 +23,7 @@ export const EventRouteHandlers = {
       const result = new Event(data);
       result.save(function (error, result) {
         let errors = getErrors(error);
-        console.log(errors, result);
+        // console.log(errors, result);
       });
       return result;
     } else {
