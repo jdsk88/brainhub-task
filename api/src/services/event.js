@@ -1,7 +1,15 @@
 import { Event } from "../models/event.js";
+import { items } from "../tests/initialState.js";
 import { getErrors } from "./errors.js";
 
 export const EventRouteHandlers = {
+  initialState: async () => {
+    const count = await Event.find();
+    console.log(count.length);
+  
+    const result = Event.insertMany(items);
+    return result;
+  },
   getAll: async () => {
     const result = Event.find();
     return result;

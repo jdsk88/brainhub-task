@@ -8,14 +8,17 @@ routes.get("/", async (req, res) => {
   res.send(response);
 });
 
+routes.get("/initialState", async (req, res) => {
+  const response = await EventRouteHandlers.initialState();
+  res.send(response);
+});
+
 routes.get("/:id", async (req, res, next) => {
   try {
     const { id } = req.params;
     console.log(id);
     const result = await EventRouteHandlers.getOne(id);
-    res.send(result);
   } catch (err) {
-    console.log(err);
     next(err);
   }
 });
@@ -39,7 +42,6 @@ routes.put("/:id", async (req, res, next) => {
     const result = await EventRouteHandlers.updateOne(id, data);
     res.send(result);
   } catch (err) {
-    console.log(err);
     next(err);
   }
 });
@@ -50,17 +52,15 @@ routes.delete("/delete/:id", async (req, res, next) => {
     const result = await EventRouteHandlers.deleteOne(id);
     res.send(result);
   } catch (err) {
-    console.log(err);
     next(err);
   }
 });
 
-routes.delete("/delete/all", async (req, res, next) => {
+routes.delete("/delete", async (req, res, next) => {
   try {
     const result = await EventRouteHandlers.deleteAll();
     res.send(result);
   } catch (err) {
-    console.log(err);
     next(err);
   }
 });
