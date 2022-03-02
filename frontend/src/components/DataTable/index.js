@@ -9,7 +9,7 @@ const EventsTable = () => {
   const events = useSelector((state) => state.events.items);
 
   const columns = [
-    { field: "id", headerName: "No.", headerAlign: "center", width: 120 },
+    { field: "id", headerName: "No.", headerAlign: "left", width: 120 },
     {
       field: "firstName",
       headerName: "First Name",
