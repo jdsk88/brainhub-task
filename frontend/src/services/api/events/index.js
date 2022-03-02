@@ -13,15 +13,20 @@ const EventsServices = {
     const res = await api.get(`/events`);
     return dispatch({ type: SET_ITEMS, payload: res.data });
   },
+  initialState: async (dispatch) => {
+    const res = await api.get("/events/initialState");
+    return dispatch({ type: SET_ITEMS, payload: res.data });
+    // ,
+    // dispatch({ type: GET_ITEMS })
+  },
   createItem: async (dispatch, data) => {
     const res = await api.post(`/events/create`, data);
-    console.log(res);
     return dispatch({ type: CREATE_ITEM, payload: res.data });
   },
   updateItem: async (dispatch, data) => {
     console.log(data);
-    // const res = await api.put(`/events/${data._id}`);
-    // return dispatch({ type: UPDATE_ITEM, payload: res.data });
+    const res = await api.put(`/events/${data._id}`, data);
+    return dispatch({ type: UPDATE_ITEM, payload: res.data });
   },
   deleteOneItem: async (dispatch, _id) => {
     console.log(_id);
@@ -32,7 +37,7 @@ const EventsServices = {
     );
   },
   deleteAllItems: async (dispatch) => {
-    const res = await api.delete(`/events/delete/all`);
+    const res = await api.delete(`/events/delete`);
     return (
       dispatch({ type: DELETE_ALL_ITEMS, payload: res.data }),
       dispatch({ type: GET_ITEMS })

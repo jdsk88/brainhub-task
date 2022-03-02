@@ -46,7 +46,8 @@ export const AlertDialog = ({ data }) => {
         </DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-            Event of {data.firstName} will be deleted!
+            Event of {data.firstName} {data.lastName} scheduled on{" "}
+            {new Date(data.eventDate).toLocaleString()} will be deleted!
           </DialogContentText>
         </DialogContent>
         <DialogActions>

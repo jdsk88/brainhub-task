@@ -16,15 +16,26 @@ import { AppBar, Drawer } from "components/AppBar";
 import MenuList from "components/MenuItems";
 import { useDispatch, useSelector } from "react-redux";
 import { SET_MENU_STATE } from "store/actions";
+import { GetApp, InsertInvitation, Refresh, Task } from "@mui/icons-material";
+import { Button } from "@mui/material";
+import EventsServices from "services/api/events";
 const mdTheme = createTheme();
 
 function MainLayout() {
   const configuration = useSelector((state) => state.configuration);
+  const events = useSelector((state) => state.events.items);
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
   const toggleDrawer = () => {
     setOpen(!open);
     dispatch({ type: SET_MENU_STATE, payload: open });
+  };
+
+  const handleInitialState = () => {
+    //   if ((events && events.length > 0) || (events && events.length < 5)) {
+    //     EventsServices.deleteAllItems(dispatch);
+    //   }
+    EventsServices.initialState(dispatch);
   };
 
   return (
@@ -58,11 +69,49 @@ function MainLayout() {
             >
               {configuration.isOpen[0]}
             </Typography>
-            <IconButton color="inherit">
-              <Badge badgeContent={4} color="secondary">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
+            <Box
+              sx={{
+                width: "50%",
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-evenly",
+                alignItems: "center",
+              }}
+              color="inherit"
+            >
+              <Typography>
+                You have{" "}
+                <strong style={{ fontSize: 18 }}>
+                  {events ? events.length : 0}
+                  {/*  */}
+                </strong>{" "}
+                events stored in mongodb
+              </Typography>
+              <Button
+                onClick={() => EventsServices.getItems(dispatch)}
+                color="info"
+                variant="contained"
+              >
+                Reload state
+                <Refresh />
+              </Button>
+              <Button
+                onClick={() => handleInitialState()}
+                color="success"
+                variant="contained"
+              >
+                Initial State <GetApp />
+              </Button>
+              <Button
+                onClick={() => {
+                  events && EventsServices.deleteAllItems(dispatch);
+                }}
+                color="error"
+                variant="contained"
+              >
+                Clear MongoDB{" "}
+              </Button>
+            </Box>
           </Toolbar>
         </AppBar>
         <Drawer variant="permanent" open={open}>

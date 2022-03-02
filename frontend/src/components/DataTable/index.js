@@ -41,16 +41,18 @@ const EventsTable = () => {
   ];
 
   let rows = [];
-  events.forEach((element, i) => {
-    rows.push({
-      _id: element._id,
-      id: i + 1,
-      firstName: element.firstName,
-      lastName: element.lastName,
-      email: element.email,
-      eventDate: new Date(element.eventDate).toLocaleString(),
+  if (events) {
+    events.forEach((element, i) => {
+      rows.push({
+        _id: element._id,
+        id: i + 1,
+        firstName: element.firstName,
+        lastName: element.lastName,
+        email: element.email,
+        eventDate: new Date(element.eventDate).toLocaleString(),
+      });
     });
-  });
+  }
 
   return (
     <div

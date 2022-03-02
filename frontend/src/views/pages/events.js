@@ -10,9 +10,10 @@ const EventsView = () => {
   return (
     <>
       <Grid container spacing={3} mb={15}>
-        {events.map((item, i) => (
-          <DashboardCard key={item.eventDate + "_" + i} data={item} />
-        ))}
+        {events &&
+          events.map((item, i) => (
+            <DashboardCard key={item.eventDate + "_" + i} data={item} />
+          ))}
         <FloatingButton />
       </Grid>
     </>
