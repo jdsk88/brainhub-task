@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import { useSelector } from "react-redux";
 import { AlertDialog } from "components/Dialog";
 
 const EventsTable = () => {
+  const [rowData, setRowData] = useState("");
+
   const events = useSelector((state) => state.events.items);
 
   const columns = [
@@ -33,7 +35,7 @@ const EventsTable = () => {
       headerAlign: "center",
       width: 200,
       renderCell: () => {
-        return <AlertDialog data={cellValues} />;
+        return <AlertDialog data={rowData} />;
       },
     },
   ];
@@ -59,7 +61,7 @@ const EventsTable = () => {
         rowsPerPageOptions={[10]}
         disableSelectionOnClick
         density="comfortable"
-        onCellClick={(e) => console.log(e)}
+        onCellClick={(e) => setRowData(e.row)}
       />
     </div>
   );

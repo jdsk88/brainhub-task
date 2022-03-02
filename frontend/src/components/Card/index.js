@@ -4,7 +4,7 @@ import Paper from "@mui/material/Paper";
 import { Button, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { DeleteForeverSharp, EditSharp } from "@mui/icons-material";
-import EventsServices from "services/events";
+import EventsServices from "services/api/events";
 import { useDispatch } from "react-redux";
 
 const style = {

@@ -15,13 +15,15 @@ const EventsServices = {
   },
   createItem: async (dispatch, data) => {
     const res = await api.post(`/events/create`, data);
+    console.log(res);
     return dispatch({ type: CREATE_ITEM, payload: res.data });
   },
   updateItem: async (dispatch, id) => {
     const res = await api.put(`/events/${id}`);
     return dispatch({ type: UPDATE_ITEM, payload: res.data });
   },
-  deleteOneItem: async (dispatch, _id,) => {
+  deleteOneItem: async (dispatch, _id) => {
+    console.log(_id);
     await api.delete(`/events/delete/${_id}`);
     return (
       dispatch({ type: DELETE_ONE_ITEM, payload: _id }),

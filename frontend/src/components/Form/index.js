@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { Button, Box, TextField, Paper } from "@mui/material";
 import { useFormik } from "formik";
 import { initialValues, validationSchema } from "./validation";
-import EventsServices from "services/events";
+import EventsServices from "services/api/events";
 
 const EventFormHorizontal = () => {
   const dispatch = useDispatch();
