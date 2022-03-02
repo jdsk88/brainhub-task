@@ -1,4 +1,4 @@
-import { forwardRef, useEffect } from "react";
+import { forwardRef } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useTheme } from "@mui/material/styles";
@@ -21,11 +21,7 @@ const MenuItem = ({ item, level }) => {
   const matchesSM = useMediaQuery(theme.breakpoints.down("lg"));
 
   const Icon = item.icon;
-  const isIcon = item?.icon ? (
-    <Icon stroke={1.5} size="1.3rem" />
-  ) : (
-    <FiberManualRecordIcon fontSize={level > 0 ? "inherit" : "medium"} />
-  );
+  const isIcon = item?.icon ? <Icon /> : <FiberManualRecordIcon />;
 
   let itemTarget = "_self";
   if (item.target) {
@@ -53,21 +49,25 @@ const MenuItem = ({ item, level }) => {
       disabled={item.disabled}
       sx={{
         mb: 0.5,
-        alignItems: "flex-start",
+        alignItems: "center",
         backgroundColor: level > 1 ? "transparent !important" : "inherit",
-        py: level > 1 ? 1 : 1.25,
         pl: `${level * 24}px`,
       }}
       selected={configuration.isOpen.findIndex((id) => id === item.id) > -1}
       onClick={() => itemHandler(item.id)}
     >
-      <ListItemIcon sx={{ my: "auto", minWidth: !item?.icon ? 18 : 36 }}>
-        {isIcon}
-      </ListItemIcon>
+      <ListItemIcon>{isIcon}</ListItemIcon>
       <ListItemText
         primary={
-          <Typography color="inherit">
-            {!configuration.opened ? item.title : ""}
+          <Typography
+            color="inherit"
+            sx={
+              !configuration.opened
+                ? { color: "black" }
+                : { color: "transparent" }
+            }
+          >
+            {!configuration.opened ? item.title : "."}
           </Typography>
         }
         secondary={
