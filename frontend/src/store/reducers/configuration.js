@@ -3,23 +3,23 @@ import { SET_MENU_STATE, MENU_OPEN, SET_THEME } from "../actions.js";
 
 export const initialState = {
   isOpen: [],
-  opened: false,
+  opened: true,
   theme: config.theme,
 };
 
 const configurationReducer = (state = initialState, action) => {
-  // console.log(state);
+  console.log(state);
   let id;
   switch (action.type) {
     case SET_THEME:
       return {
         ...state,
-        theme: action.theme,
+        theme: action.payload,
       };
     case SET_MENU_STATE:
       return {
         ...state,
-        opened: action.opened,
+        opened: action.payload,
       };
     case MENU_OPEN:
       id = action.id;

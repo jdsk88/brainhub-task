@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -14,12 +14,17 @@ import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import { AppBar, Drawer } from "components/AppBar";
 import MenuList from "components/MenuItems";
+import { useDispatch, useSelector } from "react-redux";
+import { SET_MENU_STATE } from "store/actions";
 const mdTheme = createTheme();
 
 function MainLayout() {
-  const [open, setOpen] = React.useState(true);
+  const configuration = useSelector((state) => state.configuration);
+  const dispatch = useDispatch();
+  const [open, setOpen] = useState(false);
   const toggleDrawer = () => {
     setOpen(!open);
+    dispatch({ type: SET_MENU_STATE, payload: open });
   };
 
   return (
@@ -51,7 +56,7 @@ function MainLayout() {
               noWrap
               sx={{ flexGrow: 1 }}
             >
-              Dashboard
+              {configuration.isOpen[0]}
             </Typography>
             <IconButton color="inherit">
               <Badge badgeContent={4} color="secondary">

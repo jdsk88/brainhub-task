@@ -24,15 +24,7 @@ const MenuItem = ({ item, level }) => {
   const isIcon = item?.icon ? (
     <Icon stroke={1.5} size="1.3rem" />
   ) : (
-    <FiberManualRecordIcon
-      sx={{
-        width:
-          configuration.isOpen.findIndex((id) => id === item?.id) > -1 ? 8 : 6,
-        height:
-          configuration.isOpen.findIndex((id) => id === item?.id) > -1 ? 8 : 6,
-      }}
-      fontSize={level > 0 ? "inherit" : "medium"}
-    />
+    <FiberManualRecordIcon fontSize={level > 0 ? "inherit" : "medium"} />
   );
 
   let itemTarget = "_self";
@@ -50,19 +42,10 @@ const MenuItem = ({ item, level }) => {
   }
 
   const itemHandler = (id) => {
+    console.log(id);
     dispatch({ type: MENU_OPEN, id });
     if (matchesSM) dispatch({ type: SET_MENU_STATE, opened: false });
   };
-
-  useEffect(() => {
-    const currentIndex = document.location.pathname
-      .toString()
-      .split("/")
-      .findIndex((id) => id === item.id);
-    if (currentIndex) {
-      dispatch({ type: MENU_OPEN, id: item.id });
-    }
-  }, [dispatch, item.id]);
 
   return (
     <ListItemButton
@@ -83,15 +66,8 @@ const MenuItem = ({ item, level }) => {
       </ListItemIcon>
       <ListItemText
         primary={
-          <Typography
-            variant={
-              configuration.isOpen.findIndex((id) => id === item.id) > -1
-                ? "h5"
-                : "body1"
-            }
-            color="inherit"
-          >
-            {item.title}
+          <Typography color="inherit">
+            {!configuration.opened ? item.title : ""}
           </Typography>
         }
         secondary={

@@ -11,20 +11,12 @@ const main = {
   element: <MainLayout />,
   children: [
     {
-      path: "/events/create",
+      path: "/dashboard",
       element: <EventsView />,
     },
-       {
+    {
       path: "/events/table",
       element: <EventsTableView />,
-    },
-    {
-      path: "/calendar",
-      element: <h1>contact</h1>,
-    },
-    {
-      path: "/contact",
-      element: <h1>contact</h1>,
     },
   ],
 };
