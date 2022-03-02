@@ -13,26 +13,26 @@ const EventsTable = () => {
     {
       field: "firstName",
       headerName: "First Name",
-      headerAlign: "center",
-      width: 200,
+      headerAlign: "left",
+      width: 250,
     },
     {
       field: "lastName",
       headerName: "Last Name",
-      headerAlign: "center",
-      width: 200,
+      headerAlign: "left",
+      width: 250,
     },
-    { field: "email", headerName: "E-Mail", headerAlign: "center", width: 200 },
+    { field: "email", headerName: "E-Mail", headerAlign: "left", width: 250 },
     {
       field: "eventDate",
       headerName: "Event Date ",
-      headerAlign: "center",
-      width: 200,
+      headerAlign: "left",
+      width: 250,
     },
     {
       field: "delete",
       headerName: "Delete item ",
-      headerAlign: "center",
+      headerAlign: "left",
       width: 200,
       renderCell: () => {
         return <AlertDialog data={rowData} />;
@@ -53,7 +53,14 @@ const EventsTable = () => {
   });
 
   return (
-    <div style={{ height: "calc(70vh - 56px)", width: "100%" }}>
+    <div
+      style={{
+        height: "calc(100vh - 248px)",
+        marginTop: "auto",
+        marginBottom: "auto",
+        width: "100%",
+      }}
+    >
       <DataGrid
         rows={rows}
         columns={columns}
