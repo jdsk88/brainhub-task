@@ -95,7 +95,7 @@ function MainLayout() {
           }}
         >
           <Toolbar />
-          <Container maxWidth="xl" sx={{ my: 4 }}>
+          <Container maxWidth="xxl" sx={{ my: 4 }}>
             <Outlet />
           </Container>
         </Box>
