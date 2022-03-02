@@ -4,6 +4,7 @@ import express from "express";
 import cors from "cors";
 import morgan from "morgan";
 import routes from "./routes/index.js";
+import { env } from "../../setupEnv.js";
 
 export const app = express();
 
@@ -15,9 +16,9 @@ app.use("/api/", routes);
 //server start
 app.listen(
   {
-    host: "localhost",
-    port: "8888",
+    host: env.HOST,
+    port: env.PORT,
   },
-  () => console.log(`Listening on http://${"localhost"}:${"8888"}/`)
+  () => console.log(`Listening on http://${env.HOST}:${env.PORT}/`)
 );
 export default routes;

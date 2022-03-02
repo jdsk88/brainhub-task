@@ -1,6 +1,6 @@
 import request from "supertest";
 import { app } from "../index";
-
+// console.log(process.env.HOST);
 const expectedKeys = [
   "__v",
   "_id",

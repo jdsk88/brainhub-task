@@ -1,10 +1,11 @@
 import mongoose from "mongoose";
+import { env } from "../../setupEnv";
 
 mongoose
-  .connect("mongodb://localhost:27017/brainhub", {
+  .connect(env.MONGO_DB, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
   .then(() => {
-    console.log(`connected ${"mongodb://localhost:27017/brainhub"}`);
+    console.log(`connected ${env.MONGO_DB}`);
   });
