@@ -1,5 +1,9 @@
 # Full stack application - BRAINHUB TASK
 
+### live preview
+
+https://ister.pl
+
 ## Used Technolochy:
 
 1. Nodejs
@@ -20,7 +24,7 @@
 
 - git clone https://github.com/jdsk88/brainhub-task && cd 2021
 
-##  Install all dependencies using shell script:
+## Install all dependencies using shell script:
 
 ### mac osx
 
@@ -62,13 +66,29 @@
 
 - cd frontend && npm i
 
-## Start the application
+## Start deploy version of the application
+
+1. Make build of frontend:
+
+- cd frontend
+
+- npm run build
+
+2. Back to root directiory and run to server:
+
+- cd ../
+
+- npm start
+
+- open browser at http://localhost:8888
+
+## Start development version of the application
 
 1. Backend dev server:
 
--- npm start
+- npm start
 
-1.1. or run by nodemon:
+  1.1. or run by nodemon:
 
 - npm run watch
 
@@ -79,6 +99,8 @@
 3. Both sides using concurrently package (from root directory):
 
 - npm run app
+
+### frontend starts at http://localhost:3000
 
 ## Test (backend only)
 
