@@ -66,7 +66,7 @@ https://ister.pl
 
 - cd frontend && npm i
 
-## Start deploy version of the application
+## Start deploy version of the application ( if app was installed by shellscrtipt go to step 2)
 
 1. Make build of frontend:
 
@@ -80,7 +80,7 @@ https://ister.pl
 
 - npm start
 
-- open browser at http://localhost:8888
+- open browser at http://localhost:8989
 
 ## Start development version of the application
 
