@@ -7,7 +7,6 @@ import { OpenInBrowser } from "@mui/icons-material";
 export const FloatingForm = () => {
   const [isShow, setIsShow] = useState(false);
   const { opened } = useSelector((state) => state.configuration);
-  console.log(opened);
   const handleState = () => {
     setIsShow((state) => !state);
   };

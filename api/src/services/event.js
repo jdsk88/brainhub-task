@@ -35,7 +35,6 @@ export const EventRouteHandlers = {
     }
   },
   updateOne: async (id, data) => {
-    console.log(id, data);
     const result = Event.findById({ _id: id });
     return result.updateOne(data);
   },
