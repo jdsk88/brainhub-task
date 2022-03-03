@@ -60,7 +60,6 @@ describe("EVENT PUT ITEM _id TEST", () => {
       .put(`/api/events/${_id}`)
       .send({ itemUpdate });
     expect(res.statusCode).toEqual(200);
-    // expect(Object.keys(res.body).sort()).toEqual(expectedKeys.sort());
   });
 });
 
