@@ -20,9 +20,7 @@
 
 - git clone https://github.com/jdsk88/brainhub-task && cd 2021
 
-## Installation
-
-1. Install all dependencies using shell script:
+##  Install all dependencies using shell script:
 
 ### mac osx
 
