@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useCallback, useEffect } from "react";
 import Routes from "routes";
 import { useDispatch } from "react-redux";
 import EventsServices from "services/api/events";
@@ -6,12 +6,15 @@ import { useSnackbar } from "notistack";
 const App = () => {
   const dispatch = useDispatch();
   const { enqueueSnackbar } = useSnackbar();
-  const Snackbar = (msg, variant) => {
-    enqueueSnackbar(msg, { variant });
-  };
+  const Snackbar = useCallback(
+    (msg, variant) => {
+      enqueueSnackbar(msg, { variant });
+    },
+    [enqueueSnackbar]
+  );
   useEffect(() => {
     EventsServices.getItems(dispatch, Snackbar);
-  }, [dispatch]);
+  }, [dispatch, Snackbar]);
 
   return <Routes />;
 };

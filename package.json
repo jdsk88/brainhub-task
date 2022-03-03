@@ -5,7 +5,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon -r dotenv/config --experimental-modules ./api/src/index.js",
+    "app": "concurrently \"node --experimental-modules ./api/src/index.js\" \"sleep 1 && cd ./frontend && npm start\"",
+    "start": "nodemon --experimental-modules ./api/src/index.js",
     "test": "node --trace-warnings --experimental-vm-modules node_modules/jest/bin/jest.js --detectOpenHandles",
     "cross-test": " cross-env NODE_ENV=test jest --testTimeout=10000"
   },
@@ -13,6 +14,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "concurrently": "7.0.0",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "errorhandler": "^1.5.1",

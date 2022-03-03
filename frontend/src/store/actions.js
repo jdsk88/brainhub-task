@@ -10,3 +10,4 @@ export const UPDATE_ITEM = "@events/UPDATE_ITEM";
 export const DELETE_ONE_ITEM = "@events/DELETE_ONE_ITEM";
 export const DELETE_ALL_ITEMS = "@events/DELETE_ALL_ITEMS";
 export const SET_ITEMS = "@events/SET_ITEMS";
+export const SET_INITIAL_STATE = "@events/SET_INITIAL_STATE";

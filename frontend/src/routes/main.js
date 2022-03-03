@@ -11,7 +11,7 @@ const main = {
   element: <MainLayout />,
   children: [
     {
-      path: "/dashboard",
+      path: "/",
       element: <EventsView />,
     },
     {

@@ -35,9 +35,6 @@ function MainLayout() {
   };
 
   const handleInitialState = () => {
-    //   if ((events && events.length > 0) || (events && events.length < 5)) {
-    //     EventsServices.deleteAllItems(dispatch);
-    //   }
     EventsServices.initialState(dispatch, Snackbar);
   };
 
@@ -48,7 +45,7 @@ function MainLayout() {
         <AppBar position="absolute" open={open}>
           <Toolbar
             sx={{
-              pr: "24px", // keep right padding when drawer closed
+              pr: "24px", 
             }}
           >
             <IconButton

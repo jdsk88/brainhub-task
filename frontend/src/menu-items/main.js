@@ -9,7 +9,7 @@ const main_items = {
       id: "Dashboard",
       title: "Dashboard",
       type: "item",
-      url: "/dashboard",
+      url: "/",
       icon: Dashboard,
     },
     {

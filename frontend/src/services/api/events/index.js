@@ -6,6 +6,7 @@ import {
   DELETE_ONE_ITEM,
   DELETE_ALL_ITEMS,
   GET_ITEMS,
+  SET_INITIAL_STATE,
 } from "store/actions";
 
 const errorType = (error) => error.toJSON().message === "Network Error";
@@ -17,7 +18,7 @@ const EventsServices = {
       return (
         dispatch({ type: SET_ITEMS, payload: res.data }),
         Snackbar(
-          "Successfuly connectet and get data from api server",
+          "Successfuly connected and get data from api server",
           "success"
         )
       );
@@ -29,9 +30,15 @@ const EventsServices = {
   },
   initialState: async (dispatch, Snackbar) => {
     try {
+      await api.delete(`/events/delete`);
       const res = await api.get("/events/initialState");
-      Snackbar("Successfuly connectet and get data from api server", "success");
-      return dispatch({ type: SET_ITEMS, payload: res.data });
+      return (
+        dispatch({ type: SET_INITIAL_STATE, payload: res.data }),
+        Snackbar(
+          "Successfuly connected and get data from api server",
+          "success"
+        )
+      );
     } catch (error) {
       if (errorType(error)) {
         Snackbar("No connection with api server", "error");
@@ -45,7 +52,7 @@ const EventsServices = {
       return (
         dispatch({ type: CREATE_ITEM, payload: res.data }),
         Snackbar(
-          "Successfuly connectet and post data to api server",
+          "Successfuly connected and post data to api server",
           "success",
           "success"
         )
@@ -61,7 +68,7 @@ const EventsServices = {
       await api.put(`/events/${data._id}`, data);
       return (
         dispatch({ type: UPDATE_ITEM, payload: data }),
-        Snackbar("Successfuly connectet and put data to api server", "success")
+        Snackbar("Successfuly connected and put data to api server", "success")
       );
     } catch (error) {
       if (errorType(error)) {
@@ -76,7 +83,7 @@ const EventsServices = {
         dispatch({ type: DELETE_ONE_ITEM, payload: _id }),
         dispatch({ type: GET_ITEMS }),
         Snackbar(
-          "Successfuly connectet and delete data from api server",
+          "Successfuly connected and delete data from api server",
           "success"
         )
       );
@@ -94,7 +101,7 @@ const EventsServices = {
         dispatch({ type: DELETE_ALL_ITEMS, payload: res.data }),
         dispatch({ type: GET_ITEMS }),
         Snackbar(
-          "Successfuly connectet and delete data from api server",
+          "Successfuly connected and delete data from api server",
           "success"
         )
       );

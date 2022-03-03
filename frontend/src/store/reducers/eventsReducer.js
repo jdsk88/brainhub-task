@@ -5,6 +5,7 @@ import {
   DELETE_ALL_ITEMS,
   CREATE_ITEM,
   SET_ITEMS,
+  SET_INITIAL_STATE,
 } from "../actions.js";
 
 export const initialState = { items: [] };
@@ -39,6 +40,8 @@ const eventsReducer = (state = initialState, action) => {
         ...state,
         items: state.items,
       };
+    case SET_INITIAL_STATE:
+      return { ...state, items: action.payload };
     case DELETE_ALL_ITEMS:
       state.items = [];
       return state;
