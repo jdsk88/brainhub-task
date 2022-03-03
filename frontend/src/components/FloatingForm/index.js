@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import EventFormHorizontal from "components/Form";
 import { Button, Box } from "@mui/material";
-import { ArrowBackIos } from "@mui/icons-material";
+import { useSelector } from "react-redux";
+import { OpenInBrowser } from "@mui/icons-material";
 
-export const FloatingButton = () => {
+export const FloatingForm = () => {
   const [isShow, setIsShow] = useState(false);
+  const { opened } = useSelector((state) => state.configuration);
+  console.log(opened);
   const handleState = () => {
     setIsShow((state) => !state);
   };
@@ -13,14 +16,15 @@ export const FloatingButton = () => {
       display: "flex",
       flexDirection: "row",
       justifyContent: "stretch",
-      width: "calc(100vw - 240px)",
+      width: !opened ? "calc(100vw - 240px)" : "calc(100vw - 72px)",
+      marginLeft: "auto",
+      marginRight: "auto",
     },
     formBox: {
       position: "fixed",
-      bottom: 5,
-      marginLeft: "auto",
-      marginRight: "auto",
-      width: "calc(100vw - 420px)",
+      bottom: 10,
+      marginLeft: 3,
+      width: !opened ? "calc(100vw - 390px)" : "calc(100vw - 212px)",
     },
     buttonBox: {
       position: "fixed",
@@ -55,7 +59,7 @@ export const FloatingButton = () => {
             color="primary"
             aria-label="add"
           >
-            <ArrowBackIos />
+            <OpenInBrowser />
           </Button>
         ) : (
           <Button
@@ -67,7 +71,7 @@ export const FloatingButton = () => {
             color="success"
             aria-label="add"
           >
-            <ArrowBackIos />
+            <OpenInBrowser />
           </Button>
         )}
       </Box>
