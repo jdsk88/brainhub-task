@@ -38,7 +38,6 @@ const MenuItem = ({ item, level }) => {
   }
 
   const itemHandler = (id) => {
-    console.log(id);
     dispatch({ type: MENU_OPEN, id });
     if (matchesSM) dispatch({ type: SET_MENU_STATE, opened: false });
   };

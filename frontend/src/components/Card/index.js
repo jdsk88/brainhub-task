@@ -5,7 +5,6 @@ import { Button, TextField, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import {
   ArrowBack,
-  Cancel,
   DeleteForeverSharp,
   EditSharp,
   Save,
@@ -32,12 +31,14 @@ export const DashboardCard = ({ data }) => {
     validationSchema,
     onSubmit: () => {
       const newEvent = {
+        _id: data._id,
         firstName: formik.values.firstName,
         lastName: formik.values.lastName,
         email: formik.values.email,
         eventDate: Date.parse(formik.values.eventDate),
       };
       EventsServices.updateItem(dispatch, newEvent);
+      setIsEdit(false);
       formik.resetForm();
     },
   });
@@ -50,9 +51,11 @@ export const DashboardCard = ({ data }) => {
   };
   return (
     <Grid item xs={12} md={3} lg={3}>
-      <Paper
-        sx={{
-          p: 2,
+      <form
+        onSubmit={formik.handleSubmit}
+        style={{
+          background: "whitesmoke",
+          padding: 20,
           display: "flex",
           flexDirection: "row",
           justifyContent: "space-between",
@@ -179,11 +182,6 @@ export const DashboardCard = ({ data }) => {
                   <TextField
                     name={"eventDate"}
                     type={"datetime-local"}
-                    placeholder={
-                      data.eventDate
-                        ? data.eventDate
-                        : formik.touched.eventDate && formik.errors.eventDate
-                    }
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     value={formik.values.eventDate ?? formik.values.eventDate}
@@ -215,14 +213,25 @@ export const DashboardCard = ({ data }) => {
                 height: "100%",
               }}
             >
-              <Button
-                onClick={() => handleEdit()}
-                style={style.button}
-                variant="contained"
-                color={isEdit ? "primary" : "success"}
-              >
-                {isEdit ? <Save /> : <EditSharp />}
-              </Button>
+              {isEdit ? (
+                <Button
+                  type={"submit"}
+                  style={style.button}
+                  variant="contained"
+                  color={"primary"}
+                >
+                  <Save />
+                </Button>
+              ) : (
+                <Button
+                  onClick={() => handleEdit()}
+                  style={style.button}
+                  variant="contained"
+                  color={"success"}
+                >
+                  <EditSharp />
+                </Button>
+              )}
               <Button
                 onClick={() => setIsDelete(true)}
                 style={style.button}
@@ -234,7 +243,7 @@ export const DashboardCard = ({ data }) => {
             </Box>
           </>
         )}
-      </Paper>
+      </form>
     </Grid>
   );
 };

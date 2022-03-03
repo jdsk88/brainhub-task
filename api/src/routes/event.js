@@ -16,7 +16,6 @@ routes.get("/initialState", async (req, res) => {
 routes.get("/:id", async (req, res, next) => {
   try {
     const { id } = req.params;
-    console.log(id);
     const result = await EventRouteHandlers.getOne(id);
   } catch (err) {
     next(err);

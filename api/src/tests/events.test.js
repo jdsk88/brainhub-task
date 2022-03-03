@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import request from "supertest";
 import { env } from "../../../setupEnv";
 import { app } from "../index";
-import { items } from "./initialState";
+import { items, itemUpdate } from "./initialState";
 
 let _id;
 const expectedKeys = [
@@ -54,13 +54,13 @@ describe("EVENT GET ITEM _id TEST", () => {
   });
 });
 
-// describe("EVENT PUT ITEM _id TEST", () => {
-//   it("should update item of 1st test result", async () => {
-//     const res = await request(app).put(`/api/events/${_id}`).send(itemUpdate);
-//     expect(res.statusCode).toEqual(200);
-//     expect(Object.keys(res.body).sort()).toEqual(expectedKeys.sort());
-//   });
-// });
+describe("EVENT PUT ITEM _id TEST", () => {
+  it("should update item of 1st test result", async () => {
+    const res = await request(app).put(`/api/events/${_id}`).send(itemUpdate);
+    expect(res.statusCode).toEqual(304);
+    // expect(Object.keys(res.body).sort()).toEqual(expectedKeys.sort());
+  });
+});
 
 describe("EVENT DELETE ONE ITEM ENDPOINT TEST", () => {
   it("should delete 1st test result", async () => {

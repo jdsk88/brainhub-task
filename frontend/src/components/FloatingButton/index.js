@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import EventFormHorizontal from "components/Form";
 import { Button, Box } from "@mui/material";
-import { Add, ArrowBackIos } from "@mui/icons-material";
+import { ArrowBackIos } from "@mui/icons-material";
 
 export const FloatingButton = () => {
   const [isShow, setIsShow] = useState(false);

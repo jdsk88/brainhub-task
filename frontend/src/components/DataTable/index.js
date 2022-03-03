@@ -15,19 +15,30 @@ const EventsTable = () => {
       headerName: "First Name",
       headerAlign: "left",
       width: 250,
+      editable: true,
     },
     {
       field: "lastName",
       headerName: "Last Name",
       headerAlign: "left",
       width: 250,
+      editable: true,
     },
-    { field: "email", headerName: "E-Mail", headerAlign: "left", width: 250 },
+
+    {
+      field: "email",
+      headerName: "E-Mail",
+      headerAlign: "left",
+      width: 250,
+      editable: true,
+    },
     {
       field: "eventDate",
       headerName: "Event Date ",
       headerAlign: "left",
       width: 250,
+      // type: "date",
+      editable: true,
     },
     {
       field: "delete",

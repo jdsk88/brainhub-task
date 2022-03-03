@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useSelector } from "react-redux";
 import { useTheme } from "@mui/material/styles";
 import {
   Collapse,
@@ -15,7 +14,6 @@ import { ArrowCircleUp, ArrowCircleDown } from "@mui/icons-material";
 
 const MenuCollapse = ({ menu, level }) => {
   const theme = useTheme();
-  const configuration = useSelector((state) => state.configuration);
 
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState(null);

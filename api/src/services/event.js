@@ -5,8 +5,7 @@ import { getErrors } from "./errors.js";
 export const EventRouteHandlers = {
   initialState: async () => {
     const count = await Event.find();
-    console.log(count.length);
-  
+
     const result = Event.insertMany(items);
     return result;
   },
@@ -15,14 +14,12 @@ export const EventRouteHandlers = {
     return result;
   },
   getOne: async (id) => {
-    Event.countDocuments({ _id: id }, (err, count) => {
+    Event.countDocuments({ _id: id }, (error, count) => {
       if (count > 0) {
-        console.log("exist");
         const result = Event.findById({ _id: id });
         return result;
       } else {
-        console.log("not exist");
-        return "no id like this";
+        return error;
       }
     });
   },
@@ -31,7 +28,6 @@ export const EventRouteHandlers = {
       const result = new Event(data);
       result.save(function (error, result) {
         let errors = getErrors(error);
-        // console.log(errors, result);
       });
       return result;
     } else {
@@ -39,6 +35,7 @@ export const EventRouteHandlers = {
     }
   },
   updateOne: async (id, data) => {
+    console.log(id, data);
     const result = Event.findById({ _id: id });
     return result.updateOne(data);
   },

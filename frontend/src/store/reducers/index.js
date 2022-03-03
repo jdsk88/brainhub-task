@@ -15,12 +15,12 @@ _______________________________________________________
  
  copyrigths to Maciej Jakobszy ©️           www.ister.pl
 `,
-    "font-family:monospace;color:#1976d2;font-size:12px;color:lightgreen"
+    "font-family:monospace;color:#1976d2;font-size:12px;color:darkblue"
   );
 }
 const reducer = combineReducers({
   configuration: configurationReducer,
   events: eventsReducer,
- });
+});
 
 export default reducer;
