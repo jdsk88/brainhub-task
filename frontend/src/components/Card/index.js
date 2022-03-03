@@ -55,7 +55,6 @@ export const DashboardCard = ({ data }) => {
         <form
           onSubmit={formik.handleSubmit}
           style={{
-            background: "whitesmoke",
             padding: 20,
             display: "flex",
             flexDirection: "row",
@@ -103,7 +102,7 @@ export const DashboardCard = ({ data }) => {
                   <ArrowBack sx={{ width: "30%" }} />
                   <Typography sx={{ width: "70%" }}>cancel</Typography>
                 </Button>
-              </Box>{" "}
+              </Box>
             </>
           ) : (
             <>

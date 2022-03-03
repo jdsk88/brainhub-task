@@ -56,8 +56,10 @@ describe("EVENT GET ITEM _id TEST", () => {
 
 describe("EVENT PUT ITEM _id TEST", () => {
   it("should update item of 1st test result", async () => {
-    const res = await request(app).put(`/api/events/${_id}`).send(itemUpdate);
-    expect(res.statusCode).toEqual(304);
+    const res = await request(app)
+      .put(`/api/events/${_id}`)
+      .send({ itemUpdate });
+    expect(res.statusCode).toEqual(200);
     // expect(Object.keys(res.body).sort()).toEqual(expectedKeys.sort());
   });
 });
