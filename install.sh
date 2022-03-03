@@ -1,2 +1,2 @@
 cd api && npm install 
-cd ../react && npm install
+cd ../frontend && npm install

@@ -22,11 +22,43 @@
 
 2. Install all dependencies:
 
+### step by step
+
+1. Backend dev server (from root directory):
+
+- npm i
+
+2. Frontend dev server (from root directory):
+
+- cd frontend && npm i
+
+### mac osx
+
+1. Add permisions (from root directory):
+
+- chmod +x install.sh
+
+2. Install
+
+- sh install.sh
+
 ### linux
 
-- ./install.sh
+1. Add permisions (from root directory):
+
+- chmod +x install.sh
+
+2. Install
+
+- sudo ./install.sh
 
 ### windows
+
+1. Add permisions
+
+- read --> https://www.thewindowsclub.com/how-to-run-sh-or-shell-script-file-in-windows-10
+
+2. Install
 
 - ./install
 
@@ -34,7 +66,11 @@
 
 1. Backend dev server:
 
-- npm start
+-- npm start
+
+### or run by nodemon:
+
+- npm run watch
 
 2. Frontend dev server:
 
