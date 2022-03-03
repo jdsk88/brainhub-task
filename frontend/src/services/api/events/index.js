@@ -16,8 +16,6 @@ const EventsServices = {
   initialState: async (dispatch) => {
     const res = await api.get("/events/initialState");
     return dispatch({ type: SET_ITEMS, payload: res.data });
-    // ,
-    // dispatch({ type: GET_ITEMS })
   },
   createItem: async (dispatch, data) => {
     const res = await api.post(`/events/create`, data);

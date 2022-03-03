@@ -51,199 +51,212 @@ export const DashboardCard = ({ data }) => {
   };
   return (
     <Grid item xs={12} md={3} lg={3}>
-      <form
-        onSubmit={formik.handleSubmit}
-        style={{
-          background: "whitesmoke",
-          padding: 20,
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-between",
-          height: "150px",
-        }}
-      >
-        {isDelete ? (
-          <>
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                width: "100%",
-                height: "100%",
-              }}
-            >
-              <Button
-                onClick={() => handleDelete()}
-                fullWidth
+      <Paper>
+        <form
+          onSubmit={formik.handleSubmit}
+          style={{
+            background: "whitesmoke",
+            padding: 20,
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "space-between",
+            height: "150px",
+          }}
+        >
+          {isDelete ? (
+            <>
+              <Box
                 sx={{
-                  height: "50%",
                   display: "flex",
-                  flexDirection: "row",
-                  justifyContent: "space-evenly",
+                  flexDirection: "column",
+                  width: "100%",
+                  height: "100%",
                 }}
-                variant="contained"
-                color="error"
               >
-                <DeleteForeverSharp sx={{ width: "30%" }} />
-                <Typography sx={{ width: "70%" }}> confirm delete</Typography>
-              </Button>
-              <Button
-                onClick={() => setIsDelete(false)}
-                fullWidth
-                sx={{
-                  height: "50%",
-                  display: "flex",
-                  flexDirection: "row",
-                  justifyContent: "stretch",
-                }}
-                variant="contained"
-                color={"primary"}
-              >
-                <ArrowBack sx={{ width: "30%" }} />
-                <Typography sx={{ width: "70%" }}>cancel</Typography>
-              </Button>
-            </Box>{" "}
-          </>
-        ) : (
-          <>
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                width: "80%",
-                height: "100%",
-                justifyContent: "space-evenly",
-              }}
-            >
-              {isEdit ? (
-                <>
-                  <Box
-                    sx={{
-                      display: "flex",
-                      flexDirection: "row",
-                      width: "100%",
-                    }}
-                  >
-                    <TextField
-                      id={"firstName"}
-                      name={"firstName"}
-                      type={"text"}
-                      placeholder={
-                        data.firstName
-                          ? data.firstName
-                          : formik.touched.firstName && formik.errors.firstName
-                      }
-                      onChange={formik.handleChange}
-                      onBlur={formik.handleBlur}
-                      value={formik.values.firstName ?? formik.values.firstName}
-                      error={
-                        formik.touched.firstName &&
-                        Boolean(formik.errors.firstName)
-                      }
-                      style={styles.name}
-                      InputProps={{ style: styles.input }}
-                    />
-                    <TextField
-                      id={"lastName"}
-                      name={"lastName"}
-                      type={"text"}
-                      placeholder={
-                        data.lastName
-                          ? data.lastName
-                          : formik.touched.lastName && formik.errors.lastName
-                      }
-                      onChange={formik.handleChange}
-                      onBlur={formik.handleBlur}
-                      value={formik.values.lastName ?? formik.values.lastName}
-                      error={
-                        formik.touched.lastName &&
-                        Boolean(formik.errors.lastName)
-                      }
-                      style={styles.name}
-                      InputProps={{ style: styles.input }}
-                    />
-                  </Box>
-
-                  <TextField
-                    placeholder={
-                      data.email
-                        ? data.email
-                        : formik.touched.email && formik.errors.email
-                    }
-                    name={"email"}
-                    type={"email"}
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                    value={formik.values.email ?? formik.values.email}
-                    error={formik.touched.email && Boolean(formik.errors.email)}
-                    style={styles.textField}
-                    InputProps={{ style: styles.input }}
-                  />
-                  <TextField
-                    name={"eventDate"}
-                    type={"datetime-local"}
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                    value={formik.values.eventDate ?? formik.values.eventDate}
-                    error={
-                      formik.touched.eventDate &&
-                      Boolean(formik.errors.eventDate)
-                    }
-                    style={styles.textField}
-                    InputProps={{ style: styles.input }}
-                  />
-                </>
-              ) : (
-                <>
-                  <Typography>
-                    {data && data.firstName} {data && data.lastName}
-                  </Typography>
-                  <Typography>{data && data.email}</Typography>
-                  <Typography>
-                    {data && new Date(data.eventDate).toLocaleString()}
-                  </Typography>
-                </>
-              )}
-            </Box>
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                width: "20%",
-                height: "100%",
-              }}
-            >
-              {isEdit ? (
                 <Button
-                  type={"submit"}
-                  style={style.button}
+                  onClick={() => handleDelete()}
+                  fullWidth
+                  sx={{
+                    height: "50%",
+                    display: "flex",
+                    flexDirection: "row",
+                    justifyContent: "space-evenly",
+                  }}
+                  variant="contained"
+                  color="error"
+                >
+                  <DeleteForeverSharp sx={{ width: "30%" }} />
+                  <Typography sx={{ width: "70%" }}> confirm delete</Typography>
+                </Button>
+                <Button
+                  onClick={() => setIsDelete(false)}
+                  fullWidth
+                  sx={{
+                    height: "50%",
+                    display: "flex",
+                    flexDirection: "row",
+                    justifyContent: "stretch",
+                  }}
                   variant="contained"
                   color={"primary"}
                 >
-                  <Save />
+                  <ArrowBack sx={{ width: "30%" }} />
+                  <Typography sx={{ width: "70%" }}>cancel</Typography>
                 </Button>
-              ) : (
+              </Box>{" "}
+            </>
+          ) : (
+            <>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  width: "80%",
+                  height: "100%",
+                  justifyContent: "space-evenly",
+                }}
+              >
+                {isEdit ? (
+                  <>
+                    <Box
+                      sx={{
+                        display: "flex",
+                        flexDirection: "row",
+                        width: "100%",
+                      }}
+                    >
+                      <TextField
+                        id={"firstName"}
+                        name={"firstName"}
+                        type={"text"}
+                        placeholder={
+                          data.firstName
+                            ? data.firstName
+                            : formik.touched.firstName &&
+                              formik.errors.firstName
+                        }
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        value={
+                          formik.values.firstName ?? formik.values.firstName
+                        }
+                        error={
+                          formik.touched.firstName &&
+                          Boolean(formik.errors.firstName)
+                        }
+                        style={styles.name}
+                        InputProps={{ style: styles.input }}
+                      />
+                      <TextField
+                        id={"lastName"}
+                        name={"lastName"}
+                        type={"text"}
+                        placeholder={
+                          data.lastName
+                            ? data.lastName
+                            : formik.touched.lastName && formik.errors.lastName
+                        }
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        value={formik.values.lastName ?? formik.values.lastName}
+                        error={
+                          formik.touched.lastName &&
+                          Boolean(formik.errors.lastName)
+                        }
+                        style={styles.name}
+                        InputProps={{ style: styles.input }}
+                      />
+                    </Box>
+
+                    <TextField
+                      placeholder={
+                        data.email
+                          ? data.email
+                          : formik.touched.email && formik.errors.email
+                      }
+                      name={"email"}
+                      type={"email"}
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                      value={formik.values.email ?? formik.values.email}
+                      error={
+                        formik.touched.email && Boolean(formik.errors.email)
+                      }
+                      style={styles.textField}
+                      InputProps={{ style: styles.input }}
+                    />
+                    <TextField
+                      name={"eventDate"}
+                      type={"datetime-local"}
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                      value={formik.values.eventDate ?? formik.values.eventDate}
+                      error={
+                        formik.touched.eventDate &&
+                        Boolean(formik.errors.eventDate)
+                      }
+                      style={styles.textField}
+                      InputProps={{ style: styles.input }}
+                    />
+                  </>
+                ) : (
+                  <>
+                    <Typography>
+                      {data && data.firstName} {data && data.lastName}
+                    </Typography>
+                    <Typography>{data && data.email}</Typography>
+                    <Typography>
+                      {data && new Date(data.eventDate).toLocaleString()}
+                    </Typography>
+                  </>
+                )}
+              </Box>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  width: "20%",
+                  height: "100%",
+                }}
+              >
+                {isEdit ? (
+                  <Button
+                    type={"submit"}
+                    style={style.button}
+                    variant="contained"
+                    color={"success"}
+                  >
+                    <Save />
+                  </Button>
+                ) : (
+                  <Button
+                    onClick={() => handleEdit()}
+                    style={style.button}
+                    variant="contained"
+                    color={"primary"}
+                  >
+                    <EditSharp />
+                  </Button>
+                )}
                 <Button
-                  onClick={() => handleEdit()}
+                  onClick={
+                    isEdit ? () => handleEdit() : () => setIsDelete(true)
+                  }
                   style={style.button}
                   variant="contained"
-                  color={"success"}
+                  color={isEdit ? "primary" : "error"}
                 >
-                  <EditSharp />
+                  {isEdit ? (
+                    <ArrowBack style={{ transform: "rotate(180deg)" }} />
+                  ) : (
+                    <DeleteForeverSharp />
+                  )}
                 </Button>
-              )}
-              <Button
-                onClick={() => setIsDelete(true)}
-                style={style.button}
-                variant="contained"
-                color="error"
-              >
-                <DeleteForeverSharp />
-              </Button>
-            </Box>
-          </>
-        )}
-      </form>
+              </Box>
+            </>
+          )}
+        </form>
+      </Paper>
     </Grid>
   );
 };

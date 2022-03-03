@@ -40,7 +40,8 @@ const eventsReducer = (state = initialState, action) => {
         items: state.items,
       };
     case DELETE_ALL_ITEMS:
-      return (state.items = []);
+      state.items = [];
+      return state;
 
     default:
       return state;
