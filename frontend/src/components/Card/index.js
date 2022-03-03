@@ -12,6 +12,7 @@ import {
 import EventsServices from "services/api/events";
 import { useDispatch } from "react-redux";
 import { styles } from "./styles";
+import { useSnackbar } from "notistack";
 
 import { useFormik } from "formik";
 import { initialValues, validationSchema } from "components/Form/validation";
@@ -23,6 +24,10 @@ const style = {
 };
 
 export const DashboardCard = ({ data }) => {
+  const { enqueueSnackbar } = useSnackbar();
+  const Snackbar = (msg, variant) => {
+    enqueueSnackbar(msg, { variant });
+  };
   const dispatch = useDispatch();
   const [isEdit, setIsEdit] = useState(false);
   const [isDelete, setIsDelete] = useState(false);
@@ -37,13 +42,13 @@ export const DashboardCard = ({ data }) => {
         email: formik.values.email,
         eventDate: Date.parse(formik.values.eventDate),
       };
-      EventsServices.updateItem(dispatch, newEvent);
+      EventsServices.updateItem(dispatch, newEvent, Snackbar);
       setIsEdit(false);
       formik.resetForm();
     },
   });
   const handleDelete = () => {
-    EventsServices.deleteOneItem(dispatch, data._id);
+    EventsServices.deleteOneItem(dispatch, data._id, Snackbar);
     setIsDelete(false);
   };
   const handleEdit = () => {

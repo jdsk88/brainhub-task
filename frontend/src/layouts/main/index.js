@@ -17,9 +17,14 @@ import { SET_MENU_STATE } from "store/actions";
 import { GetApp, Refresh } from "@mui/icons-material";
 import { Button } from "@mui/material";
 import EventsServices from "services/api/events";
-const mdTheme = createTheme();
+import { useSnackbar } from "notistack";
 
 function MainLayout() {
+  const { enqueueSnackbar } = useSnackbar();
+  const Snackbar = (msg, variant) => {
+    enqueueSnackbar(msg, { variant });
+  };
+  const mdTheme = createTheme();
   const configuration = useSelector((state) => state.configuration);
   const events = useSelector((state) => state.events.items);
   const dispatch = useDispatch();
@@ -33,7 +38,7 @@ function MainLayout() {
     //   if ((events && events.length > 0) || (events && events.length < 5)) {
     //     EventsServices.deleteAllItems(dispatch);
     //   }
-    EventsServices.initialState(dispatch);
+    EventsServices.initialState(dispatch, Snackbar);
   };
 
   return (
@@ -86,7 +91,7 @@ function MainLayout() {
                 events stored in mongodb
               </Typography>
               <Button
-                onClick={() => EventsServices.getItems(dispatch)}
+                onClick={() => EventsServices.getItems(dispatch, Snackbar)}
                 color="info"
                 variant="contained"
               >
@@ -102,7 +107,7 @@ function MainLayout() {
               </Button>
               <Button
                 onClick={() => {
-                  events && EventsServices.deleteAllItems(dispatch);
+                  events && EventsServices.deleteAllItems(dispatch, Snackbar);
                 }}
                 color="error"
                 variant="contained"

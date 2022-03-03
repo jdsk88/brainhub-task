@@ -6,13 +6,31 @@ import App from "./App";
 import { store } from "store";
 import { BrowserRouter } from "react-router-dom";
 import config from "store/config";
+import Zoom from "@mui/material/Zoom";
+import { SnackbarProvider } from "notistack";
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <BrowserRouter basename={config.basename}>
-        <App />
-      </BrowserRouter>
+      <SnackbarProvider
+        preventDuplicate
+        anchorOrigin={{
+          vertical: "top",
+          horizontal: "center",
+        }}
+        TransitionComponent={Zoom}
+        iconVariant={{
+          success: "✅",
+          error: "✖️",
+          warning: "⚠️",
+          info: "ℹ️",
+        }}
+        maxSnack={3}
+      >
+        <BrowserRouter basename={config.basename}>
+          <App />
+        </BrowserRouter>
+      </SnackbarProvider>
     </Provider>
   </React.StrictMode>,
   document.getElementById("root")

@@ -2,7 +2,7 @@ import React from "react";
 import Grid from "@mui/material/Grid";
 import { useSelector } from "react-redux";
 import { DashboardCard } from "components/Card";
-import { FloatingForm } from "components/FloatingForm";
+import { FloatingForm } from "components/Floating";
 
 const EventsView = () => {
   const events = useSelector((state) => state.events.items);

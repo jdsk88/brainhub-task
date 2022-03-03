@@ -7,8 +7,12 @@ import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import EventsServices from "services/api/events";
 import { useDispatch } from "react-redux";
-
+import { useSnackbar } from "notistack";
 export const AlertDialog = ({ data }) => {
+  const { enqueueSnackbar } = useSnackbar();
+  const Snackbar = (msg, variant) => {
+    enqueueSnackbar(msg, { variant });
+  };
   const [open, setOpen] = useState(false);
   const dispatch = useDispatch();
 
@@ -21,7 +25,7 @@ export const AlertDialog = ({ data }) => {
   };
 
   const handleDelete = () => {
-    EventsServices.deleteOneItem(dispatch, data._id);
+    EventsServices.deleteOneItem(dispatch, data._id, Snackbar);
     handleClose();
   };
 

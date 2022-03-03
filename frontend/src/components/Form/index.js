@@ -4,9 +4,15 @@ import { Button, Box, TextField, Paper } from "@mui/material";
 import { useFormik } from "formik";
 import { initialValues, validationSchema } from "./validation";
 import EventsServices from "services/api/events";
+import { useSnackbar } from "notistack";
 
 const EventFormHorizontal = () => {
   const dispatch = useDispatch();
+  const { enqueueSnackbar } = useSnackbar();
+  const Snackbar = (msg, variant) => {
+    enqueueSnackbar(msg, { variant });
+  };
+
   const formik = useFormik({
     initialValues: initialValues,
     validationSchema,
@@ -17,7 +23,7 @@ const EventFormHorizontal = () => {
         email: formik.values.email,
         eventDate: Date.parse(formik.values.eventDate),
       };
-      EventsServices.createItem(dispatch, newEvent);
+      EventsServices.createItem(dispatch, newEvent, Snackbar);
       formik.resetForm();
     },
   });
