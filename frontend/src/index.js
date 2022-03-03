@@ -16,7 +16,7 @@ ReactDOM.render(
         preventDuplicate
         anchorOrigin={{
           vertical: "top",
-          horizontal: "left",
+          horizontal: "center",
         }}
         TransitionComponent={Zoom}
         iconVariant={{
