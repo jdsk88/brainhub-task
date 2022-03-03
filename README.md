@@ -14,23 +14,15 @@
 
 2. MongoDb ^4.4.8
 
-## Installation - Inside your terminal type commands below:
+## Clone repository - Inside your terminal type commands below:
 
 1. Clone repozitory and open it:
 
 - git clone https://github.com/jdsk88/brainhub-task && cd 2021
 
-2. Install all dependencies:
+## Installation
 
-### step by step
-
-1. Backend dev server (from root directory):
-
-- npm i
-
-2. Frontend dev server (from root directory):
-
-- cd frontend && npm i
+1. Install all dependencies using shell script:
 
 ### mac osx
 
@@ -62,13 +54,23 @@
 
 - ./install
 
+## Or install step by step
+
+1. Backend dev server (from root directory):
+
+- npm i
+
+2. Frontend dev server (from root directory):
+
+- cd frontend && npm i
+
 ## Start the application
 
 1. Backend dev server:
 
 -- npm start
 
-### or run by nodemon:
+1.1. or run by nodemon:
 
 - npm run watch
 
@@ -82,12 +84,10 @@
 
 ## Test (backend only)
 
-1. Backend dev server:
+1. Backend dev server (from root directory):
 
 - npm test
 
 ## links
 
-1. Coded By:
-
-- https://ister.pl
+### Coded By https://ister.pl
