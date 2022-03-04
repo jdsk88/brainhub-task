@@ -124,7 +124,13 @@ export const DialogAdd = ({ data }) => {
               }
               helperText={formik.touched.eventDate && formik.errors.eventDate}
             />
-            <Button fullWidth type="submit" variant="contained" color="success">
+            <Button
+              fullWidth
+              type="submit"
+              variant="contained"
+              color="success"
+              onClick={() => setOpen(false)}
+            >
               Create Event
             </Button>
           </DialogContent>
