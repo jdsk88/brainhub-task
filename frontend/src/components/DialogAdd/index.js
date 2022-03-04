@@ -37,6 +37,7 @@ export const DialogAdd = ({ data }) => {
       };
       EventsServices.createItem(dispatch, newEvent, Snackbar);
       formik.resetForm();
+      setOpen(false);
     },
   });
   return (
@@ -124,13 +125,7 @@ export const DialogAdd = ({ data }) => {
               }
               helperText={formik.touched.eventDate && formik.errors.eventDate}
             />
-            <Button
-              fullWidth
-              type="submit"
-              variant="contained"
-              color="success"
-              onClick={() => setOpen(false)}
-            >
+            <Button fullWidth type="submit" variant="contained" color="success">
               Create Event
             </Button>
           </DialogContent>
