@@ -56,7 +56,7 @@ export const DashboardCard = ({ data }) => {
     setIsEdit(!isEdit);
   };
   return (
-    <Grid item xs={12} md={3} lg={3}>
+    <Grid item xs={12} md={6} lg={4}>
       <Paper>
         <form
           onSubmit={formik.handleSubmit}

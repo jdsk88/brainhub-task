@@ -50,7 +50,7 @@ const MenuItem = ({ item, level }) => {
         mb: 0.5,
         alignItems: "center",
         backgroundColor: level > 1 ? "transparent !important" : "inherit",
-        pl: `${level * 24}px`,
+        // pl: `${level * 24}px`,
       }}
       selected={configuration.isOpen.findIndex((id) => id === item.id) > -1}
       onClick={() => itemHandler(item.id)}

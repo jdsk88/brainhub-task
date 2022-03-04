@@ -4,7 +4,6 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import Container from "@mui/material/Container";
@@ -25,7 +24,6 @@ function MainLayout() {
     enqueueSnackbar(msg, { variant });
   };
   const mdTheme = createTheme();
-  const configuration = useSelector((state) => state.configuration);
   const events = useSelector((state) => state.events.items);
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
@@ -45,7 +43,7 @@ function MainLayout() {
         <AppBar position="absolute" open={open}>
           <Toolbar
             sx={{
-              pr: "24px", 
+              pr: "24px",
             }}
           >
             <IconButton
@@ -60,18 +58,9 @@ function MainLayout() {
             >
               <MenuIcon />
             </IconButton>
-            <Typography
-              component="h1"
-              variant="h6"
-              color="inherit"
-              noWrap
-              sx={{ flexGrow: 1 }}
-            >
-              {configuration.isOpen[0]}
-            </Typography>
             <Box
               sx={{
-                width: "50%",
+                width: "100%",
                 display: "flex",
                 flexDirection: "row",
                 justifyContent: "space-evenly",
@@ -79,15 +68,8 @@ function MainLayout() {
               }}
               color="inherit"
             >
-              <Typography>
-                You have{" "}
-                <strong style={{ fontSize: 18 }}>
-                  {events ? events.length : 0}
-                  {/*  */}
-                </strong>{" "}
-                events stored in mongodb
-              </Typography>
               <Button
+                size="small"
                 onClick={() => EventsServices.getItems(dispatch, Snackbar)}
                 color="info"
                 variant="contained"
@@ -96,6 +78,7 @@ function MainLayout() {
                 <Refresh />
               </Button>
               <Button
+                size="small"
                 onClick={() => handleInitialState()}
                 color="success"
                 variant="contained"
@@ -103,6 +86,7 @@ function MainLayout() {
                 Initial State <GetApp />
               </Button>
               <Button
+                size="small"
                 onClick={() => {
                   events && EventsServices.deleteAllItems(dispatch, Snackbar);
                 }}
