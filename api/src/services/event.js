@@ -1,11 +1,29 @@
 import { Event } from "../models/event.js";
 import { items } from "../tests/initialState.js";
-import { getErrors } from "./errors.js";
+// import { getErrors } from "./errors.js";
+const getErrors = (error) => {
+  let errorArray = [];
+  if (error) {
+    if (error.errors["firstName"]) {
+      errorArray.push("firstName");
+    }
+    if (error.errors["lastName"]) {
+      errorArray.push("lastName");
+    }
+    if (error.errors["email"]) {
+      errorArray.push("email");
+    }
+    if (error.errors["eventDate"]) {
+      errorArray.push("eventDate");
+    }
+  } else {
+    errorArray.push("No Errors - Event Saved Succefully");
+  }
+  return errorArray;
+};
 
 export const EventRouteHandlers = {
   initialState: async () => {
-    const count = await Event.find();
-
     const result = Event.insertMany(items);
     return result;
   },
@@ -14,25 +32,15 @@ export const EventRouteHandlers = {
     return result;
   },
   getOne: async (id) => {
-    Event.countDocuments({ _id: id }, (error, count) => {
-      if (count > 0) {
-        const result = Event.findById({ _id: id });
-        return result;
-      } else {
-        return error;
-      }
-    });
+    const result = Event.findById({ _id: id });
+    return result;
   },
   addOne: async (data) => {
-    if (typeof data === "object") {
-      const result = new Event(data);
-      result.save(function (error, result) {
-        let errors = getErrors(error);
-      });
-      return result;
-    } else {
-      return "event was not created";
-    }
+    const result = new Event(data);
+    result.save(function (error, result) {
+      getErrors(error);
+    });
+    return result;
   },
   updateOne: async (id, data) => {
     const result = Event.findById({ _id: id });

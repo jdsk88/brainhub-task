@@ -30,11 +30,9 @@ export const items = [
     eventDate: 1646733780000,
   },
 ];
-export const itemUpdate = [
-  {
-    firstName: "Master",
-    lastName: "Yoda",
-    email: "MasterYoda@gmail.com",
-    eventDate: 1646733780000,
-  },
-];
+export const itemUpdate = {
+  firstName: "Master",
+  lastName: "Yoda",
+  email: "MasterYoda@gmail.com",
+  eventDate: 1646733780000,
+};
