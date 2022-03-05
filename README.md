@@ -22,7 +22,7 @@ https://ister.pl
 
 1. Clone repozitory and open it:
 
-- git clone https://github.com/jdsk88/brainhub-task && cd 2021
+- git clone https://github.com/jdsk88/brainhub-task && cd brainhub-task
 
 ## Install all dependencies using shell script:
 
